@@ -1,0 +1,17 @@
+@font-face {
+	font-family: 'cr437';
+	src: url(font.ttf);
+}
+
+body {
+	font-family: cr437;
+	background-color: black;
+	color: white;
+	margin: 0;
+	cursor: none;
+}
+
+p {
+	font-size: 12pt;
+	margin: 0;
+}
