@@ -73,7 +73,7 @@ function tick() {
 
 function init() {
     main()
-    setInterval(tick, 10);
+    setInterval(tick, 1);
 }
 
 init()
