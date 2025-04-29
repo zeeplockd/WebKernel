@@ -1,4 +1,5 @@
 var strNumber = 0;
+var tick = 0;
 const colorMap = {
     "&0": "#000000",
     "&1": "#0000aa",
@@ -62,13 +63,12 @@ class WebKernel {
 
 
 function main() {
-    WebKernel.formattedStringOut("&aWelcome &9to &eWebKernel!");
-    WebKernel.stringOut("\n");
-    WebKernel.stringOut
+    WebKernel.formattedStringOut("&aWelcome &9to &eWebKernel!\n");
 }
 
 function tick() {
-    WebKernel.stringOut("Tick!")
+    WebKernel.stringOut(`Tick number ${tick}!\n`);
+    tick++;
 }
 
 function init() {
