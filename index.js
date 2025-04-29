@@ -22,7 +22,7 @@ const colorMap = {
 class WebKernel {
     static formattedStringOut(stringToPut) {
         var wkConsole = document.getElementById("wk-console");
-        var lineID = `wk-line-${strNumber}`;
+        var lineID = `wk-line-${lineNumber}`;
         lineNumber++;
 
         var formattedText = document.createElement("span");
