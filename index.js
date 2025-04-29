@@ -67,7 +67,7 @@ function main() {
 }
 
 function tick() {
-    WebKernel.stringOut(`Tick number ${tick}!\n`);
+    WebKernel.stringOut(`Tick number ${tickNumber}!\n`);
     tickNumber++;
 }
 
