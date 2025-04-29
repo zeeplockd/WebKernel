@@ -42,7 +42,6 @@ class WebKernel {
         });
 
         wkConsole.appendChild(formattedText);
-        wkConsole.appendChild(document.createElement("br"));
     }
 
     static stringOut(stringToPut) {
@@ -58,11 +57,23 @@ class WebKernel {
         text.innerText = stringToPut;
 
         wkConsole.appendChild(text);
-        wkConsole.appendChild(document.createElement("br"));
     }
 }
 
 
-WebKernel.stringOut("Hello WebKernel!");
-WebKernel.formattedStringOut("&cThis &6is a &etest &afor &9Minecraft-like &dcolors.");
-WebKernel.stringOut("&cThis &6is a &etest &afor &9Minecraft-like &dcolors.");
+function main() {
+    WebKernel.formattedStringOut("&aWelcome &9to &eWebKernel!");
+    WebKernel.stringOut("\n");
+    WebKernel.stringOut
+}
+
+function tick() {
+    WebKernel.stringOut("Tick!")
+}
+
+function init() {
+    main()
+    setInterval(tick, 10);
+}
+
+init()
