@@ -57,7 +57,7 @@ class WebKernel {
         text.style.color = currentColor;
         text.innerText = stringToPut;
 
-        wkConsole.appendChild(formattedText);
+        wkConsole.appendChild(text);
         wkConsole.appendChild(document.createElement("br"));
     }
 }
