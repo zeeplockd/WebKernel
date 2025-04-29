@@ -27,13 +27,10 @@ class WebKernel {
         var formattedText = document.createElement("span");
         formattedText.setAttribute("id", lineID);
 
-        // Step 1: Escape backslashes properly first
-        stringToPut = stringToPut.replace(/\\\\/g, "\\"); // Replace "\\" with "\"
+        stringToPut = stringToPut.replace(/\&([0-9a-f])/g, "_ESCAPED_$1"); // Mark them uniquely
 
-        // Step 2: Temporarily replace escaped color codes so they're not processed as actual color codes
-        stringToPut = stringToPut.replace(/\\&([0-9a-f])/g, "_ESCAPED_$1"); // Mark them uniquely
-
-        // Step 3: Split the string by color codes
+        stringToPut = stringToPut.replace(/\\/g, "\\"); // Replace "\\" with "\"
+        
         var parts = stringToPut.split(/(&[0-9a-f])/g);
         var currentColor = "#ffffff"; // Default text color
 
@@ -43,7 +40,6 @@ class WebKernel {
             } else {
                 let span = document.createElement("span");
 
-                // Step 4: Convert escaped sequences back to their original form
                 span.innerText = part.replace(/_ESCAPED_([0-9a-f])/g, "&$1");
                 span.style.color = currentColor;
                 formattedText.appendChild(span);

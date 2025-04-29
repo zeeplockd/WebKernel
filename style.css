@@ -11,7 +11,8 @@ body {
 	cursor: none;
 }
 
-p {
+span {
 	font-size: 12pt;
 	margin: 0;
+	padding: 0;
 }
