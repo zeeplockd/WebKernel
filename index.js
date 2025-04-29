@@ -35,7 +35,7 @@ class WebKernel {
                 currentColor = colorMap[part];
             } else {
                 let span = document.createElement("span");
-
+                span.innerText = part;
                 span.style.color = currentColor;
                 formattedText.appendChild(span);
             }
