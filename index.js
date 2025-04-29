@@ -1,5 +1,5 @@
-var strNumber = 0;
-var tick = 0;
+var lineNumber = 0;
+var tickNumber = 0;
 const colorMap = {
     "&0": "#000000",
     "&1": "#0000aa",
@@ -23,7 +23,7 @@ class WebKernel {
     static formattedStringOut(stringToPut) {
         var wkConsole = document.getElementById("wk-console");
         var lineID = `wk-line-${strNumber}`;
-        strNumber++;
+        lineNumber++;
 
         var formattedText = document.createElement("span");
         formattedText.setAttribute("id", lineID);
@@ -68,7 +68,7 @@ function main() {
 
 function tick() {
     WebKernel.stringOut(`Tick number ${tick}!\n`);
-    tick++;
+    tickNumber++;
 }
 
 function init() {
