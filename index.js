@@ -61,19 +61,15 @@ class WebKernel {
     }
 }
 
+function init() {
+    main()
+}
 
 function main() {
     WebKernel.formattedStringOut("&aWelcome &9to &eWebKernel!\n");
-}
-
-function tick() {
-    WebKernel.stringOut(`Tick number ${tickNumber}!\n`);
-    tickNumber++;
-}
-
-function init() {
-    main()
-    setInterval(tick, 1);
+    setTimeout(() => {
+        WebKernel.stringOut("This should have a delay of 2 seconds.");
+    }, 2000);
 }
 
 init()
