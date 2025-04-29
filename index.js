@@ -47,8 +47,8 @@ class WebKernel {
 
     static stringOut(stringToPut) {
         var wkConsole = document.getElementById("wk-console");
-        var lineID = `wk-line-${strNumber}`;
-        strNumber++;
+        var lineID = `wk-line-${lineNumber}`;
+        lineNumber++;
 
         var text = document.createElement("span");
         text.setAttribute("id", lineID);
