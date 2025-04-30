@@ -31,7 +31,9 @@ class WebKernel {
     }
 
     handleKeyPress(event) {
-        console.log(`Key pressed: ${event.key}`);
+        if (!event.repeat) {
+            console.log(`Key pressed: ${event.key}`);
+        };
     }
 }
 
