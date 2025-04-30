@@ -1,36 +1,39 @@
-var shellPrefix = "> ";
+const shellPrefix = "> ";
 
 class WebKernel {
-    static setLineText(line, stringToPut) {
-        var wkConsole = document.getElementById("wk-console");
-        var lineID = `wk-line-${line}`;
+    constructor(consoleId) {
+        this.consoleElement = document.getElementById(consoleId);
+    }
 
-        var text = document.createElement("span");
-        text.setAttribute("id", lineID);
-        
-        text.innerText = stringToPut;
+    setLineText(line, stringToPut) {
+        let lineID = `wk-line-${line}`;
+        let existingElement = document.getElementById(lineID);
 
-        var lineElementIfExists = document.getElementById(lineID);
-        if (lineElementIfExists == null) {
-            wkConsole.appendChild(text);
+        if (existingElement) {
+            existingElement.innerText = stringToPut;
         } else {
-            lineElementIfExists.remove();
-            wkConsole.appendChild(text);
-        };
-    };
-};
+            let text = document.createElement("span");
+            text.setAttribute("id", lineID);
+            text.innerText = stringToPut;
+            this.consoleElement.appendChild(text);
+        }
+    }
 
-addEventListener("keydown", (event) => {
-    // handle key presses
-});
+    startShell() {
+        this.setLineText(1, shellPrefix);
+    }
 
-function startShell() {
-    WebKernel.setLineText(1, shellPrefix);
-};
+    init() {
+        this.setLineText(0, "Welcome to WebKernel!\n");
+        this.startShell();
 
-function main() {
-    WebKernel.setLineText(0, "Welcome to WebKernel!\n");
-    startShell()
-};
+        document.addEventListener("keydown", this.handleKeyPress.bind(this));
+    }
 
-main();
+    handleKeyPress(event) {
+        console.log(`Key pressed: ${event.key}`);
+    }
+}
+
+const kernel = new WebKernel("wk-console");
+kernel.init();
