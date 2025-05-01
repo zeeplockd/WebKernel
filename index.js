@@ -48,7 +48,7 @@ class WebTerm {
     }
 }
 
-$(window).on('beforeunload', function(e) {
+window.on('beforeunload', function(e) {
     return "Are you sure you want to leave the page? You will lose all your unsaved stuff (everything as of writing).";
 });
 
