@@ -1,11 +1,11 @@
-class WebKernel {
+class WebTerm {
     constructor(consoleId, shellPrefix) {
         this.consoleElement = document.getElementById(consoleId);
         this.shellPrefix = shellPrefix;
     }
 
     setLineText(line, stringToPut) {
-        let lineId = `wk-line-${line}`;
+        let lineId = `wt-line-${line}`;
         let existingElement = document.getElementById(lineId);
 
         if (existingElement) {
@@ -26,7 +26,7 @@ class WebKernel {
         this.currentInput = "";
         this.shellLine = 1;
 
-        this.setLineText(0, "Welcome to WebKernel!\n");
+        this.setLineText(0, "Welcome to WebTerm!\n");
         this.shell();
 
         document.addEventListener("keydown", this.handleKeyPress.bind(this));
@@ -40,11 +40,13 @@ class WebKernel {
             this.currentInput = this.currentInput.slice(0, -1);
             this.setLineText(this.shellLine, this.shellPrefix + this.currentInput);
         } else if (event.key === "Enter") {
+            this.setLineText(this.shellLine, this.shellPrefix + this.currentInput + "\n");
             this.shellLine++;
+            this.currentInput = "";
             this.shell();
         }
     }
 }
 
-const kernel = new WebKernel("wk-console", "> ");
-kernel.init();
+const wt = new WebTerm("wt-console", "> ");
+wt.init();
