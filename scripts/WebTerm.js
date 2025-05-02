@@ -1,4 +1,4 @@
-class WebTerm {
+export class WebTerm {
     constructor(consoleId, shellPrefix) {
         this.consoleElement = document.getElementById(consoleId);
         this.shellPrefix = shellPrefix;
