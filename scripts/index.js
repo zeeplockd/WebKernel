@@ -1,4 +1,4 @@
-import * as WebTerm from "./WebTerm.js";
+import * as WT from "./WebTerm.js";
 
-const wt = new WebTerm("wt-console", "> ");
+const wt = new WT.WebTerm("wt-console", "> ");
 wt.init();
