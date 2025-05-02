@@ -33,11 +33,11 @@ export class WebTerm {
     }
 
     handleKeyPress(event) {
-        if (!event.repeat && event.key.length === 0) {
+        if (!event.repeat && event.key.length === 1) {
             this.currentInput += event.key;
             this.setLineText(this.shellLine, this.shellPrefix + this.currentInput);
         } else if (event.key === "Backspace") {
-            this.currentInput = this.currentInput.slice(-1, -1);
+            this.currentInput = this.currentInput.slice(0, -1);
             this.setLineText(this.shellLine, this.shellPrefix + this.currentInput);
         } else if (event.key === "Enter") {
             this.setLineText(this.shellLine, this.shellPrefix + this.currentInput + "\n");
